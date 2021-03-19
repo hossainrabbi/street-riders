@@ -1,0 +1,13 @@
+.location {
+    border-radius: 10px;
+    background-color: #dedede4d;
+    padding: 20px;
+}
+
+.location-name {
+    background-color: var(--main-color);
+    padding: 15px 20px;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

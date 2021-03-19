@@ -1,0 +1,30 @@
+.Login {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.Login .login-email-password {
+    padding: 20px;
+}
+
+.Login .or {
+    position: relative;
+}
+
+.Login .or::before,
+.Login .or::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.125);
+}
+
+.Login .or::before {
+    left: 0;
+}
+
+.Login .or::after {
+    right: 0;
+}

@@ -1,0 +1,19 @@
+.social-media-login {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: #ffffff;
+    position: relative;
+}
+
+.social-icon {
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    line-height: 36px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+}
