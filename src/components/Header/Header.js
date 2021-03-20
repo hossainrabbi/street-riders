@@ -13,7 +13,7 @@ const Header = () => {
 
     return (
         <div className="Header">
-            <Container>
+            <Container className="riders-cards">
                 <Row>
                     {rider.map((data) => (
                         <Col lg={3} md={6} key={data.id}>

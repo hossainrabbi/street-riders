@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import fakeData from '../../fakeData.json';
+import GoogleMap from '../GoogleMap/GoogleMap';
 import Location from '../Location/Location';
-import Map from '../Map/Map';
 import './RiderDestination.css';
 
 const RiderDestination = () => {
@@ -19,19 +19,8 @@ const RiderDestination = () => {
 
     const rider = riders.find((rider) => rider.id === Number(id));
 
-    let pickFrom;
-    let pickTo;
-    const handleChange = (e) => {
-        if (e.target.name === 'pickFrom') {
-            pickFrom = e.target.value;
-        }
-
-        if (e.target.name === 'pickTo') {
-            pickTo = e.target.value;
-        }
-    };
-
-    const handleClick = () => {
+    const onSubmit = (data) => {
+        const { pickFrom, pickTo } = data;
         setPickFrom(pickFrom);
         setPickTo(pickTo);
         setLocationSearchBar(!locationSearchBar);
@@ -42,8 +31,7 @@ const RiderDestination = () => {
             <Row>
                 <Col md={5} className="mb-4">
                     <Location
-                        handleChange={handleChange}
-                        handleClick={handleClick}
+                        onSubmit={onSubmit}
                         pickFromValue={pickFromValue}
                         pickToValue={pickToValue}
                         rider={rider}
@@ -51,7 +39,7 @@ const RiderDestination = () => {
                     />
                 </Col>
                 <Col md={7}>
-                    <Map />
+                    <GoogleMap />
                 </Col>
             </Row>
         </Container>

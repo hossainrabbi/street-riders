@@ -8,7 +8,6 @@ const NavManu = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const { displayName, email } = loggedInUser;
-    console.log(displayName);
 
     return (
         <>

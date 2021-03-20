@@ -9,11 +9,15 @@ import { Button, Form } from 'react-bootstrap';
 import Price from './Price';
 import './location.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useForm } from 'react-hook-form';
 
 const Location = (props) => {
+    const { register, handleSubmit } = useForm({
+        mode: 'onChange',
+    });
+
     const {
-        handleChange,
-        handleClick,
+        onSubmit,
         pickFromValue,
         pickToValue,
         rider,
@@ -23,13 +27,15 @@ const Location = (props) => {
     return (
         <div className="location">
             {locationSearchBar && (
-                <div>
+                <Form onSubmit={handleSubmit(onSubmit)}>
                     <Form.Group>
                         <Form.Label>Pick From</Form.Label>
                         <Form.Control
                             type="text"
                             name="pickFrom"
-                            onChange={handleChange}
+                            ref={register({
+                                required: true,
+                            })}
                         />
                     </Form.Group>
                     <Form.Group>
@@ -37,19 +43,16 @@ const Location = (props) => {
                         <Form.Control
                             type="text"
                             name="pickTo"
-                            onChange={handleChange}
+                            ref={register({
+                                required: true,
+                            })}
                         />
                     </Form.Group>
                     <Form.Control type="date" className="my-4" />
-                    <Button
-                        variant="primary"
-                        type="button"
-                        className="custrom-btn w-100"
-                        onClick={handleClick}
-                    >
+                    <Button type="submit" className="custrom-btn w-100">
                         Search
                     </Button>
-                </div>
+                </Form>
             )}
             {!locationSearchBar && (
                 <>

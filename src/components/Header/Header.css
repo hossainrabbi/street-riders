@@ -13,3 +13,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 768px) {
+    .riders-cards {
+        margin-top: 100px;
+    }
+}
