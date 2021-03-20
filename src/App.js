@@ -6,6 +6,7 @@ import NotMatch from './components/NotMatch/NotMatch';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RiderDestination from './components/RiderDestination/RiderDestination';
 import NavManu from './components/NavManu/NavManu';
+import Destination from './components/Destination/Destination';
 
 export const UserContext = createContext();
 
@@ -22,6 +23,9 @@ const App = () => {
                     </Route>
                     <PrivateRoute path="/rider/:id">
                         <RiderDestination />
+                    </PrivateRoute>
+                    <PrivateRoute path="/destination">
+                        <Destination />
                     </PrivateRoute>
                     <Route path="/login">
                         <Login />

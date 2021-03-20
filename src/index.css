@@ -15,4 +15,6 @@ img {
 .custrom-btn {
     border: none !important;
     background-color: var(--main-color) !important;
+    color: #ffffff !important;
+    border-radius: 5px !important;
 }

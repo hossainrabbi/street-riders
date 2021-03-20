@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 import './NavManu.css';
@@ -32,22 +32,14 @@ const NavManu = () => {
                                 Contact
                             </Link>
                             {email ? (
-                                <NavDropdown
-                                    title={displayName}
-                                    id="basic-nav-dropdown"
-                                >
-                                    <div className="text-center px-2">
-                                        <p>Email: {email}</p>
-                                        <Button
-                                            onClick={() => setLoggedInUser({})}
-                                            className="custrom-btn"
-                                        >
-                                            Log Out
-                                        </Button>
-                                    </div>
-                                </NavDropdown>
+                                <span className="user-name nav-link">
+                                    {displayName}
+                                </span>
                             ) : (
-                                <Link to="/login" className="nav-link">
+                                <Link
+                                    to="/login"
+                                    className="nav-link custrom-btn"
+                                >
                                     Login
                                 </Link>
                             )}

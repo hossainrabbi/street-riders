@@ -1,3 +1,8 @@
 .Nav-Manu {
-    background-color: #ffffffd5;
+    background-color: #ffffffc4;
+}
+
+.Nav-Manu .user-name {
+    color: var(--main-color) !important;
+    cursor: pointer;
 }
