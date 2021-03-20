@@ -39,7 +39,10 @@ const RiderDestination = () => {
                     />
                 </Col>
                 <Col md={7}>
-                    <GoogleMap />
+                    <GoogleMap
+                        defaultZoom={10}
+                        defaultCenter={{ lat: 24.012856, lng: 89.259056 }}
+                    />
                 </Col>
             </Row>
         </Container>

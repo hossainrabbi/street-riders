@@ -1,41 +1,38 @@
 import React from 'react';
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import {
+    withScriptjs,
+    withGoogleMap,
+    GoogleMap,
+    Marker,
+} from 'react-google-maps';
 
-export class MapContainer extends React.Component {
-    state = {
-        showingInfoWindow: false,
-        activeMarker: {},
-        selectedPlace: {},
-    };
+const APIKey = 'AIzaSyDUNefKBuDxG4csF-0HgdnR8t-XLvZWTdU';
 
-    onMarkerClick = (props, marker, e) =>
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true,
-        });
+const MyMapComponent = withScriptjs(
+    withGoogleMap((props) => (
+        <GoogleMap
+            defaultZoom={8}
+            defaultCenter={{ lat: 24.012856, lng: 89.259056 }}
+        >
+            {props.isMarkerShown && (
+                <Marker position={{ lat: 24.012856, lng: 89.259056 }} />
+            )}
+        </GoogleMap>
+    ))
+);
 
-    onMapClicked = (props) => {
-        if (this.state.showingInfoWindow) {
-            this.setState({
-                showingInfoWindow: false,
-                activeMarker: null,
-            });
-        }
-    };
+const GoogleMapApi = () => {
+    return (
+        <div style={{ width: '100%', height: '100%' }}>
+            <MyMapComponent
+                isMarkerShown
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&Key=${APIKey}`}
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `400px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+            />
+        </div>
+    );
+};
 
-    render() {
-        return (
-            <Map google={this.props.google} onClick={this.onMapClicked}>
-                <Marker
-                    onClick={this.onMarkerClick}
-                    name={'Current location'}
-                />
-            </Map>
-        );
-    }
-}
-
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyBLVHqBpK4pTUHKxRLctTj6a3nHrt1d-uI',
-})(MapContainer);
+export default GoogleMapApi;
