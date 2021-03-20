@@ -33,7 +33,7 @@ const NavManu = () => {
                             </Link>
                             {email ? (
                                 <span className="user-name nav-link">
-                                    {displayName}
+                                    {displayName || email}
                                 </span>
                             ) : (
                                 <Link
