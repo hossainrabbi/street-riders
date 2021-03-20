@@ -102,8 +102,12 @@ const CustomForm = ({ newUser, setNewUser, onSubmit }) => {
                                     </Form.Text>
                                 )}
                             </Form.Group> */}
-                <Button variant="primary" type="submit" className="w-100">
-                    Submit
+                <Button
+                    variant="primary"
+                    type="submit"
+                    className="custrom-btn w-100"
+                >
+                    {newUser ? 'Sign In' : 'Login'}
                 </Button>
             </Form>
             <p className="text-center m-0">

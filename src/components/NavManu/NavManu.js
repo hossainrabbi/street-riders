@@ -8,10 +8,11 @@ const NavManu = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const { displayName, email } = loggedInUser;
+    console.log(displayName);
 
     return (
         <>
-            <Navbar className="Nav-Manu" expand="lg">
+            <Navbar className="Nav-Manu fixed-top" expand="lg">
                 <Container>
                     <Link to="/" className="navbar-brand">
                         Street Riders

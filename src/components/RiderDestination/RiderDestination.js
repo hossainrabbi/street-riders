@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import fakeData from '../../fakeData.json';
 import Location from '../Location/Location';
 import Map from '../Map/Map';
+import './RiderDestination.css';
 
 const RiderDestination = () => {
     const [pickFromValue, setPickFrom] = useState('');
@@ -37,7 +38,7 @@ const RiderDestination = () => {
     };
 
     return (
-        <Container className="mt-4">
+        <Container className="RiderDestination">
             <Row>
                 <Col md={5} className="mb-4">
                     <Location

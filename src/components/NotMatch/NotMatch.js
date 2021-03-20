@@ -5,7 +5,7 @@ const NotMatch = () => {
     return (
         <Container
             className="d-flex align-items-center justify-content-center"
-            style={{ height: '90vh' }}
+            style={{ height: '100vh' }}
         >
             <div className="text-center text-danger display-4">
                 404 Page Not Found
