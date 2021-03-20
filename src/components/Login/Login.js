@@ -30,9 +30,13 @@ const Login = () => {
     let { from } = location.state || { from: { pathname: '/' } };
 
     const onSubmit = (data) => {
-        const { name, email, password } = data;
+        const { name, email, password, confirmPassword } = data;
+        let confirmPasswordMatch = false;
+        if (password === confirmPassword) {
+            confirmPasswordMatch = true;
+        }
 
-        if (newUser && name && email && password) {
+        if (newUser && name && email && password && confirmPasswordMatch) {
             createUserWithEmail(name, email, password)
                 .then((res) => handleResponse(res))
                 .catch((err) => setLoggedInUser(err));

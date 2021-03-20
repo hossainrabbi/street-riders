@@ -3,9 +3,16 @@ import { Button, Card, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 
 const CustomForm = ({ newUser, setNewUser, onSubmit }) => {
-    const { register, handleSubmit, errors } = useForm({
+    const { register, handleSubmit, errors, watch } = useForm({
         mode: 'onChange',
     });
+
+    const watchValue = watch();
+
+    let confirmPasswordError = '';
+    if (watchValue.password !== watchValue.confirmPassword) {
+        confirmPasswordError = 'Password Does not match';
+    }
 
     return (
         <Card className="login-email-password">
@@ -80,6 +87,24 @@ const CustomForm = ({ newUser, setNewUser, onSubmit }) => {
                         </Form.Text>
                     )}
                 </Form.Group>
+                {newUser && (
+                    <Form.Group>
+                        <Form.Label>Confirm Password</Form.Label>
+                        <Form.Control
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Enter Confirm Password"
+                            ref={register({
+                                required: true,
+                            })}
+                        />
+                        {confirmPasswordError && (
+                            <Form.Text className="text-danger">
+                                {confirmPasswordError}
+                            </Form.Text>
+                        )}
+                    </Form.Group>
+                )}
                 <Button
                     variant="primary"
                     type="submit"
