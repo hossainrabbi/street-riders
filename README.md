@@ -11,3 +11,8 @@ This is a vehicle travel website. Here are 4 vehicle options. You have to choose
 -   Here is Google Map.
 
 ![Street Riders](./src/images/street-riders.png)
+
+### Technology Used : 
+- React.js.
+- React Bootstrap.
+- Firebase.
