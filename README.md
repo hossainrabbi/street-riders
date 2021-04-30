@@ -8,4 +8,6 @@ This is a vehicle travel website. Here are 4 vehicle options. You have to choose
 -   The vehicle that was clicked will be taken to the page. The end can be searched from where to where.
 -   Here is Google Map.
 
+![Street Riders](./src/images/street-riders.png)
+
 ### Street Riders: [Live Preview](https://street-riders.web.app/)
